@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/bootstrap.min.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <title>Product Managment System</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center my-4">Product Managment System</h1>
+      <form>
+        <label for="productName" class="fs-5 mb-1">Product Name:</label>
+        <input
+          type="text"
+          name="product-name"
+          id="productName"
+          class="form-control mb-2"
+          placeholder="tornado"
+        />
+
+        <label for="productPrice" class="fs-5 mb-1">Product Price:</label>
+        <input
+          type="text"
+          name="product-price"
+          id="productPrice"
+          class="form-control mb-2"
+          placeholder="4500"
+        />
+
+        <label for="productCategory" class="fs-5 mb-1">Product Category:</label>
+        <input
+          type="text"
+          name="product-category"
+          id="productCategory"
+          class="form-control mb-2"
+          placeholder="tv"
+        />
+
+        <label for="productDescription" class="fs-5 mb-1"
+          >Product Description:</label
+        >
+        <input
+          type="text"
+          name="product-description"
+          id="productDescription"
+          class="form-control mb-2"
+          placeholder="brandnew , 45inch"
+        />
+
+        <button
+          type="button"
+          class="btn btn-primary w-100 my-2"
+          id="addProduct"
+        >
+          Add Product
+        </button>
+        <button
+          type="button"
+          class="btn btn-warning w-100 my-2 d-none"
+          id="updateProduct"
+        >
+          Update
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger w-100 my-2"
+          id="deleteAllBtn"
+        >
+          Delete All
+        </button>
+        <input
+          type="search"
+          name="search"
+          id="searchInput"
+          oninput="searchProduct(this.value)"
+          placeholder="search"
+          class="form-control"
+        />
+      </form>
+
+      <table class="table mt-3 table-bordered text-center table-responsive">
+        <thead class="table-dark">
+          <tr>
+            <th>Num</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Update</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- <tr>
+            <td>0</td>
+            <td>iphone</td>
+            <td>50000</td>
+            <td>mobile</td>
+            <td>brand new, 128gb</td>
+            <td><button class="btn btn-warning btn-sm">Update</button></td>
+            <td><button class="btn btn-danger btn-sm">Delete</button></td>
+          </tr> -->
+        </tbody>
+      </table>
+    </div>
+
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
