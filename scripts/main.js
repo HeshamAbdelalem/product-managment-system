@@ -39,7 +39,7 @@ function validatePrice(i) {
     Swal.fire({
       icon: 'error',
       title: 'Not Vaild Product Price',
-      text: 'product Price must not be empty and atleast 2 digits long',
+      text: 'product Price must not be empty and atleast 2 digits long and 6 digits max',
     });
   }
 }
