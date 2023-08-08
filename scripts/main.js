@@ -25,7 +25,7 @@ function validateProductName(i) {
     Swal.fire({
       icon: 'error',
       title: 'Not Vaild Product Name',
-      text: 'product name must not be empty and atleast 4 chars long',
+      text: 'product name must not be empty and atleast 4 chars long and starts with character',
     });
   }
 }
