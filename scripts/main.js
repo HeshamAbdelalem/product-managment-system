@@ -18,7 +18,7 @@ let updatedIndex;
 // ! Validation functions
 
 function validateProductName(i) {
-  let regex = /^[a-zA-z0-9]{4,}$/;
+  let regex = /^[a-zA-z][\sa-zA-z\s0-9]{3,}$/;
   if (regex.test(i)) {
     return true;
   } else {
