@@ -15,6 +15,35 @@ let productsContainer = [];
 
 let updatedIndex;
 
+// ! Validation functions
+
+function validateProductName(i) {
+  let regex = /^[a-zA-z0-9]{4,}$/;
+  if (regex.test(i)) {
+    return true;
+  } else {
+    Swal.fire({
+      icon: 'error',
+      title: 'Not Vaild Product Name',
+      text: 'product name must not be empty and atleast 4 chars long',
+    });
+  }
+}
+
+function validatePrice(i) {
+  let regex = /^\d{2,6}$/;
+
+  if (regex.test(i)) {
+    return true;
+  } else {
+    Swal.fire({
+      icon: 'error',
+      title: 'Not Vaild Product Price',
+      text: 'product Price must not be empty and atleast 2 digits long',
+    });
+  }
+}
+
 if (localStorage.getItem('products')) {
   productsContainer = JSON.parse(localStorage.getItem('products'));
 }
@@ -27,18 +56,23 @@ if (productsContainer <= 0) {
 }
 
 function addProduct() {
-  let product = {
-    name: productName.value,
-    price: productPrice.value,
-    category: productCategory.value,
-    description: productDescription.value,
-  };
+  if (
+    validateProductName(productName.value) &&
+    validatePrice(productPrice.value)
+  ) {
+    let product = {
+      name: productName.value,
+      price: productPrice.value,
+      category: productCategory.value,
+      description: productDescription.value,
+    };
 
-  productsContainer.push(product);
-  localStorage.setItem('products', JSON.stringify(productsContainer));
+    productsContainer.push(product);
+    localStorage.setItem('products', JSON.stringify(productsContainer));
 
-  clearForm();
-  displayProducts(productsContainer);
+    clearForm();
+    displayProducts(productsContainer);
+  }
 }
 
 function displayProducts(arr) {
@@ -102,10 +136,15 @@ function updateProduct(index) {
 }
 
 function updateFromInput() {
-  productsContainer[updatedIndex].name = productName.value;
-  productsContainer[updatedIndex].price = productPrice.value;
-  productsContainer[updatedIndex].category = productCategory.value;
-  productsContainer[updatedIndex].description = productDescription.value;
+  if (
+    validateProductName(productName.value) &&
+    validatePrice(productPrice.value)
+  ) {
+    productsContainer[updatedIndex].name = productName.value;
+    productsContainer[updatedIndex].price = productPrice.value;
+    productsContainer[updatedIndex].category = productCategory.value;
+    productsContainer[updatedIndex].description = productDescription.value;
+  }
 
   localStorage.setItem('products', JSON.stringify(productsContainer));
 
